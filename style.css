@@ -1,0 +1,160 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: black;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+.hud {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+  font-size: 14px;
+  z-index: 10;
+  opacity: 0.9;
+}
+
+#arena {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  border: 3px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.circle:hover {
+  transform: scale(1.05);
+}
+
+.red {
+  background: #ef4444;
+}
+
+.green {
+  background: #22c55e;
+}
+
+.blue {
+  background: #3b82f6;
+}
+
+
+#startBtn {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 22px;
+
+  background: #22c55e;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  z-index: 10;
+}
+
+#startBtn:hover {
+  box-shadow: 0 0 16px rgba(34, 197, 94, 0.7);
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 320px;
+  padding: 28px 36px;
+
+  background: radial-gradient(
+    circle at top,
+    rgba(34, 197, 94, 0.12),
+    rgba(0, 0, 0, 0.95) 60%
+  );
+
+  border: 2px solid #22c55e;
+  border-radius: 14px;
+
+  text-align: center;
+  color: white;
+
+  box-shadow:
+    0 0 20px rgba(34, 197, 94, 0.25),
+    0 0 60px rgba(34, 197, 94, 0.15);
+
+  animation: popIn 0.25s ease-out;
+}
+
+
+.game-over h2 {
+  font-size: 28px;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.game-over p {
+  font-size: 16px;
+  margin: 8px 0;
+  opacity: 0.9;
+}
+
+.game-over b {
+  color: #22c55e;
+}
+
+.game-over button {
+  margin-top: 20px;
+  padding: 10px 24px;
+
+  background: #22c55e;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.game-over button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+}
+
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
